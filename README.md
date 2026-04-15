@@ -1,4 +1,4 @@
-# JObfuscator — Java Source Code Obfuscation & Protection
+# JObfuscator — Java Source Code Obfuscation & Protection (Rust SDK)
 
 [![crates.io](https://img.shields.io/crates/v/jobfuscator.svg)](https://crates.io/crates/jobfuscator)
 [![License](https://img.shields.io/crates/l/jobfuscator)](https://github.com/PELock/JObfuscator-Rust/blob/main/LICENSE)
