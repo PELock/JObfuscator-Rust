@@ -56,6 +56,8 @@ pub enum JObfuscatorResponse {
 pub struct JObfuscator {
     api_key: Option<String>,
     client: reqwest::Client,
+    // Whether to request comment stripping on the API (not exposed; matches product defaults).
+    remove_comments: bool,
     /// Should the source code be compressed.
     pub enable_compression: bool,
     /// Change linear code execution flow to non-linear version.
@@ -74,8 +76,6 @@ pub struct JObfuscator {
     pub ints_to_arrays: bool,
     /// For each method, extract all possible doubles from the code and store them in an array.
     pub dbls_to_arrays: bool,
-    /// Strip comments when parsing the Java source (not a per-`@Obfuscate` strategy member).
-    pub remove_comments: bool,
     /// Encrypt doubles using floating-point math functions from `java.lang.Math`.
     pub dbls_math_crypt: bool,
     /// Store string material in a generated char vault.
@@ -127,6 +127,7 @@ impl JObfuscator {
         Self {
             api_key,
             client: reqwest::Client::new(),
+            remove_comments: true,
             enable_compression: true,
             mix_code_flow: true,
             rename_variables: true,
@@ -136,7 +137,6 @@ impl JObfuscator {
             crypt_strings: true,
             ints_to_arrays: true,
             dbls_to_arrays: true,
-            remove_comments: true,
             dbls_math_crypt: true,
             string_char_vault: true,
             ints_from_double_math: true,

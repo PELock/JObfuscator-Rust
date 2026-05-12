@@ -87,11 +87,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     my_jobfuscator.dbls_to_arrays = true;
 
     //
-    // strip comments when parsing (not toggled via @Obfuscate in source)
-    //
-    my_jobfuscator.remove_comments = true;
-
-    //
     // encrypt doubles using java.lang.Math-style floating-point expressions
     //
     my_jobfuscator.dbls_math_crypt = true;
