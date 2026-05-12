@@ -3,7 +3,7 @@
  *
  * In this example we will verify our activation key status.
  *
- * Version        : v1.0.0
+ * Version        : v1.1.0
  * Language       : Rust
  * Author         : Bartosz Wójcik
  * Web page       : https://www.pelock.com

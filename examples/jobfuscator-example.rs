@@ -3,7 +3,7 @@
  *
  * In this example we will obfuscate sample source with custom options.
  *
- * Version        : v1.0.0
+ * Version        : v1.1.0
  * Language       : Rust
  * Author         : Bartosz Wójcik
  * Web page       : https://www.pelock.com
@@ -87,6 +87,49 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     my_jobfuscator.dbls_to_arrays = true;
 
     //
+    // strip comments when parsing (not toggled via @Obfuscate in source)
+    //
+    my_jobfuscator.remove_comments = true;
+
+    //
+    // encrypt doubles using java.lang.Math-style floating-point expressions
+    //
+    my_jobfuscator.dbls_math_crypt = true;
+
+    //
+    // string char vault strategy
+    //
+    my_jobfuscator.string_char_vault = true;
+
+    //
+    // encode integers using double-based math
+    //
+    my_jobfuscator.ints_from_double_math = true;
+
+    //
+    // opaque mixer chain
+    //
+    my_jobfuscator.opaque_mixer_chain = true;
+
+    //
+    // complexify boolean conditions
+    //
+    my_jobfuscator.complexify_booleans = true;
+
+    //
+    // try/finally noise injection
+    //
+    my_jobfuscator.try_finally_noise = true;
+
+    //
+    // array literal encryption (int, char, double, String)
+    //
+    my_jobfuscator.array_int_crypt = true;
+    my_jobfuscator.array_char_crypt = true;
+    my_jobfuscator.array_double_crypt = true;
+    my_jobfuscator.array_string_crypt = true;
+
+    //
     // source code in Java format
     //
     let source_code = r#"import java.util.*;
@@ -129,12 +172,22 @@ class Ideone
     // annotation alone)
     //
     //@Obfuscate(
-    //  ints_math_crypt = true,
+    //  array_int_crypt = true,
+    //  array_char_crypt = true,
+    //  array_double_crypt = true,
+    //  array_string_crypt = true,
     //  crypt_strings = true,
     //  rename_methods = false,
     //  rename_variables = true,
     //  shuffle_methods = true,
+    //  ints_math_crypt = true,
+    //  dbls_math_crypt = true,
     //  mix_code_flow = true,
+    //  string_char_vault = true,
+    //  ints_from_double_math = true,
+    //  opaque_mixer_chain = true,
+    //  complexify_booleans = true,
+    //  try_finally_noise = true,
     //  ints_to_arrays = true,
     //  dbls_to_arrays = true
     // )

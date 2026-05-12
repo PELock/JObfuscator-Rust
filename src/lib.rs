@@ -1,7 +1,7 @@
 /******************************************************************************
  * JObfuscator WebApi interface
  *
- * Version        : v1.0.0
+ * Version        : v1.1.0
  * Language       : Rust
  * Author         : Bartosz Wójcik
  * Web page       : https://www.pelock.com
@@ -74,6 +74,28 @@ pub struct JObfuscator {
     pub ints_to_arrays: bool,
     /// For each method, extract all possible doubles from the code and store them in an array.
     pub dbls_to_arrays: bool,
+    /// Strip comments when parsing the Java source (not a per-`@Obfuscate` strategy member).
+    pub remove_comments: bool,
+    /// Encrypt doubles using floating-point math functions from `java.lang.Math`.
+    pub dbls_math_crypt: bool,
+    /// Store string material in a generated char vault.
+    pub string_char_vault: bool,
+    /// Encode integer literals using double-based math expressions.
+    pub ints_from_double_math: bool,
+    /// Apply opaque mixer chain obfuscation.
+    pub opaque_mixer_chain: bool,
+    /// Replace boolean sub-expressions with harder-to-read equivalents.
+    pub complexify_booleans: bool,
+    /// Inject try/finally noise around code regions.
+    pub try_finally_noise: bool,
+    /// Obfuscate int array initializer content.
+    pub array_int_crypt: bool,
+    /// Obfuscate char array initializer content.
+    pub array_char_crypt: bool,
+    /// Obfuscate double array initializer content.
+    pub array_double_crypt: bool,
+    /// Obfuscate `String` array initializer content.
+    pub array_string_crypt: bool,
 }
 
 impl JObfuscator {
@@ -114,6 +136,17 @@ impl JObfuscator {
             crypt_strings: true,
             ints_to_arrays: true,
             dbls_to_arrays: true,
+            remove_comments: true,
+            dbls_math_crypt: true,
+            string_char_vault: true,
+            ints_from_double_math: true,
+            opaque_mixer_chain: true,
+            complexify_booleans: true,
+            try_finally_noise: true,
+            array_int_crypt: true,
+            array_char_crypt: true,
+            array_double_crypt: true,
+            array_string_crypt: true,
         }
     }
 
@@ -196,6 +229,39 @@ impl JObfuscator {
         }
         if self.dbls_to_arrays {
             params.insert("dbls_to_arrays".to_string(), "1".to_string());
+        }
+        if self.remove_comments {
+            params.insert("remove_comments".to_string(), "1".to_string());
+        }
+        if self.dbls_math_crypt {
+            params.insert("dbls_math_crypt".to_string(), "1".to_string());
+        }
+        if self.string_char_vault {
+            params.insert("string_char_vault".to_string(), "1".to_string());
+        }
+        if self.ints_from_double_math {
+            params.insert("ints_from_double_math".to_string(), "1".to_string());
+        }
+        if self.opaque_mixer_chain {
+            params.insert("opaque_mixer_chain".to_string(), "1".to_string());
+        }
+        if self.complexify_booleans {
+            params.insert("complexify_booleans".to_string(), "1".to_string());
+        }
+        if self.try_finally_noise {
+            params.insert("try_finally_noise".to_string(), "1".to_string());
+        }
+        if self.array_int_crypt {
+            params.insert("array_int_crypt".to_string(), "1".to_string());
+        }
+        if self.array_char_crypt {
+            params.insert("array_char_crypt".to_string(), "1".to_string());
+        }
+        if self.array_double_crypt {
+            params.insert("array_double_crypt".to_string(), "1".to_string());
+        }
+        if self.array_string_crypt {
+            params.insert("array_string_crypt".to_string(), "1".to_string());
         }
 
         //
