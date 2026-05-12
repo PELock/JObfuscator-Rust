@@ -77,6 +77,7 @@ class Ideone
     //  array_double_crypt = true,
     //  array_string_crypt = true,
     //  crypt_strings = true,
+    //  string_split = true,
     //  rename_methods = false,
     //  rename_variables = true,
     //  shuffle_methods = true,

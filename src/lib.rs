@@ -72,6 +72,8 @@ pub struct JObfuscator {
     pub ints_math_crypt: bool,
     /// Encrypt strings using polymorphic encryption algorithms.
     pub crypt_strings: bool,
+    /// Split and reassemble eligible string literals (string split obfuscation).
+    pub string_split: bool,
     /// For each method, extract all possible integers from the code and store them in an array.
     pub ints_to_arrays: bool,
     /// For each method, extract all possible doubles from the code and store them in an array.
@@ -135,6 +137,7 @@ impl JObfuscator {
             shuffle_methods: true,
             ints_math_crypt: true,
             crypt_strings: true,
+            string_split: true,
             ints_to_arrays: true,
             dbls_to_arrays: true,
             dbls_math_crypt: true,
@@ -223,6 +226,9 @@ impl JObfuscator {
         }
         if self.crypt_strings {
             params.insert("crypt_strings".to_string(), "1".to_string());
+        }
+        if self.string_split {
+            params.insert("string_split".to_string(), "1".to_string());
         }
         if self.ints_to_arrays {
             params.insert("ints_to_arrays".to_string(), "1".to_string());

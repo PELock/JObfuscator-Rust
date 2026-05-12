@@ -77,7 +77,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     my_jobfuscator.crypt_strings = true;
 
     //
-    // for each method, extract all possible integers from the code and store them in an array
+    // rewrite string literals by splitting and concatenation where applicable
+    //
+    my_jobfuscator.string_split = true;
     //
     my_jobfuscator.ints_to_arrays = true;
 
@@ -172,6 +174,7 @@ class Ideone
     //  array_double_crypt = true,
     //  array_string_crypt = true,
     //  crypt_strings = true,
+    //  string_split = true,
     //  rename_methods = false,
     //  rename_variables = true,
     //  shuffle_methods = true,
